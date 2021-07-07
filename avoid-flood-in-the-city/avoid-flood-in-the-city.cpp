@@ -3,9 +3,9 @@ public:
     
     vector<int> avoidFlood(vector<int>& rains) {
         vector<int> ans;
-        map<int,int> mp;
-        map<int,int> status;
-        map<int,int> lastRain;
+        unordered_map<int,int> mp;
+        unordered_map<int,int> status;
+        unordered_map<int,int> lastRain;
         for(int i = 0;i<rains.size();i++)
         {
             if(rains[i]>0)
