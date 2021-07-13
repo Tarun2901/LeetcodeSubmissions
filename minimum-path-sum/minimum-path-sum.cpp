@@ -33,7 +33,34 @@ public:
         int er = grid.size()-1;
         int ec = grid[0].size()-1;
         vector<vector<int>> dp(er+1,vector<int>(ec+1,0));
-        int ans = minimise(sr,sc,er,ec,grid,dp);
-        return ans;
+        
+        
+        for(int sr=er;sr>=0;sr--)
+        {
+            for(int sc = ec;sc>=0;sc--)
+            {
+                if(sr == er && sc == ec)
+                {
+                   dp[sr][sc] = grid[sr][sc];
+                   continue;
+                }
+                int a = INT_MAX;
+                int b = INT_MAX;
+                int cost = INT_MAX;
+                if(sr+1<=er)
+                {
+                    a = dp[sr+1][sc];
+                }
+                if(sc+1<=ec)
+                {
+                    b = dp[sr][sc+1];
+                }
+        
+                cost = min(a,b);
+                dp[sr][sc] = cost+grid[sr][sc];
+            }
+        }
+        //int ans = minimise(sr,sc,er,ec,grid,dp);
+        return dp[0][0];
     }
 };
