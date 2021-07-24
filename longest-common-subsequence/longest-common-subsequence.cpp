@@ -1,35 +1,32 @@
 class Solution {
 public:
-    int longestCommonSubsequence(string s1, string s2) {
-        int x = s1.length();
-        int y = s2.length();            
-        int dp[x+1][y+1];
-        
-        for(int i = 0;i<x+1;i++)
+    
+    int solve(string &text1,string &text2,int n,int m,vector<vector<int>>& dp)
+    {
+        if(n == 0 || m == 0)
         {
-            for(int j = 0;j<y+1;j++)
-            {
-                if(i == 0|| j ==0)
-                {
-                    dp[i][j] = 0;
-                }
-            }
+            return dp[n][m] = 0;
         }
-        
-        for(int i = 1;i<x+1;i++)
+        if(dp[n][m]!=-1)
         {
-            for(int j = 1;j<y+1;j++)
-            {
-                if(s1[i-1] == s2[j-1])
-                {
-                    dp[i][j] = 1 + dp[i-1][j-1];
-                }
-                else
-                {
-                    dp[i][j] = max(dp[i][j-1],dp[i-1][j]);
-                }
-            }
+            return dp[n][m];
         }
-        return dp[x][y];
+        if(text1[n-1] == text2[m-1])
+        {
+            //(n-1)th character has matched and hence we will decrement both n and m
+            return dp[n][m] = 1 + solve(text1,text2,n-1,m-1,dp);    
+        }
+        else
+        {
+            return dp[n][m] = max(solve(text1,text2,n-1,m,dp),solve(text1,text2,n,m-1,dp));
+        }
+    }
+    
+    int longestCommonSubsequence(string text1, string text2) {
+        int n = text1.size();
+        int m = text2.size();
+        vector<vector<int>>dp(n+1,vector<int>(m+1,-1));
+        int soln = solve(text1,text2,n,m,dp);
+        return dp[n][m];
     }
 };
