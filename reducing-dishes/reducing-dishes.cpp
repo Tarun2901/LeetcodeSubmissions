@@ -2,7 +2,7 @@ class Solution {
 public:
     
     
-    int solve(vector<int>& arr,int idx,int n,int tt,vector<vector<int>>& dp)
+        int solve(vector<int>& arr,int idx,int n,int tt,vector<vector<int>>& dp)
     {
         if(idx == n)
         {
