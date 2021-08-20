@@ -1,8 +1,11 @@
 class Solution {
 public:
+    Solution() {
+        ios_base::sync_with_stdio(0),cin.tie(0),cout.tie(0);
+    }
     string evaluate(string s, vector<vector<string>>& knowledge) {
         string ans = "";
-        map<string,string> mp;
+        unordered_map<string,string> mp;
         for(int i = 0;i<knowledge.size();i++)
         {
             string key = knowledge[i][0];
