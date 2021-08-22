@@ -1,3 +1,4 @@
+[Discussion Post (created on 22/7/2021 at 23:46)](https://leetcode.com/problems/minimum-domino-rotations-for-equal-row/discuss/1419936/C%2B%2B-or-Constant-Space-or-O(n)-time)  
 <h2>1007. Minimum Domino Rotations For Equal Row</h2><h3>Medium</h3><hr><div><p>In a row of dominoes, <code>tops[i]</code> and <code>bottoms[i]</code> represent the top and bottom halves of the <code>i<sup>th</sup></code> domino. (A domino is a tile with two numbers from 1 to 6 - one on each half of the tile.)</p>
 
 <p>We may rotate the <code>i<sup>th</sup></code> domino, so that <code>tops[i]</code> and <code>bottoms[i]</code> swap values.</p>
