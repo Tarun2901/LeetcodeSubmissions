@@ -1,13 +1,14 @@
 class Solution:
     def nextPermutation(self, nums: List[int]) -> None:
         p = -1;
+        #Find first decreasing element
         for i in range(len(nums)-2,-1,-1):
             if nums[i]<nums[i+1]:
                 p = i;
                 break;
-        
+        # Find just greater element than p on it's right
         justGreater = -1;
-        for i in range(len(nums)-1,-1,-1):
+        for i in range(len(nums)-1,p,-1):
             if nums[p]<nums[i]:
                 justGreater = i;
                 break;
