@@ -7,15 +7,14 @@ class Solution:
                 m[ele] = 1;
             else:
                 m[ele] = m[ele]+1
+        tmap = {}
         for i in range(0,len(t)):
             ele = t[i];
-            if ele not in m:
-                return False
+            if ele not in tmap:
+                #print("This "+ ele +" char was not there in 2nd string")
+                tmap[ele] = 1
             else:
-                m[ele] = m[ele] - 1;
-        val = m.values();
-        for i in val:
-            if i > 0:
-                return False
-        return True;
+                tmap[ele]+=1
+        return m == tmap;
+        
         
