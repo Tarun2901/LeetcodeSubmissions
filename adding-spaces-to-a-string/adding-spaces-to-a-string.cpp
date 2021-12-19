@@ -4,19 +4,14 @@ public:
         int i = 0;
         int j = 0;
         string str = "";
-        while(i<s.size())
+        for(int i = 0;i<s.size();i++)
         {
             if(j<spaces.size() && i == spaces[j])
             {
                 str+=" ";
-                str.push_back(s[i]);
                 j++;
             }
-            else
-            {
-                str.push_back(s[i]);
-            }
-            i++;
+            str.push_back(s[i]);
         }
         return str;
     }
