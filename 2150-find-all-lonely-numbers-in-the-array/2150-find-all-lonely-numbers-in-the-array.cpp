@@ -1,7 +1,7 @@
 class Solution {
 public:
     vector<int> findLonely(vector<int>& nums) {
-        map<int,int> mp;
+        unordered_map<int,int> mp;
         vector<int>ans;
         for(int val:nums)
         {
@@ -14,10 +14,9 @@ public:
                 mp[val]++;
             }
         }
-        for(auto p:mp)
+        for(int val:nums)
         {
-            int val = p.first;
-            if(p.second == 1 && mp[val+1] == 0 && mp[val-1] == 0)
+            if(mp[val] == 1 && mp[val+1] == 0 && mp[val-1] == 0)
             {
                 ans.push_back(val);
             }
