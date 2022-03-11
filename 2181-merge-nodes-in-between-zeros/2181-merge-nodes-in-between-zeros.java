@@ -16,23 +16,18 @@ class Solution {
         int curr = 0;
         while(temp!=null)
         {
-            if(temp.val == 0 && curr == 0)
-            {
-                temp = temp.next;
-            }
-            else if(temp.val == 0 && curr > 0)
+            if(temp.val == 0 && curr > 0)
             {
                 ListNode newNode = new ListNode(curr);
                 p.next = newNode;
                 p = newNode;
-                temp = temp.next;
                 curr = 0;
             }
             else if(temp.val>0)
             {
                 curr+= temp.val;
-                temp = temp.next;
             }
+            temp = temp.next;
         }
         return dummy.next;
     }
